@@ -1,0 +1,208 @@
+<MOVE Order="" Id="Loop Plunge">
+  <NAME>Loop Plunge</NAME>
+  <ICON>013.ico</ICON>
+  <CODE>
+G04
+G04
+#30 = 0
+#31=#5002
+G00 G90 Y[#31]
+G00 G91 Z[-1*[{WIDTH_OF_PLUNGE}]]
+G00 G90 Y[-1*[{RAPID_DOWN_TO}+#5]]
+G01 G90 Y[-1*[{DEPTH_OF_PLUNGE}+#5]] F{VELOCITY_AXIS1}
+G04 P{PLUNGE_DWELL}
+#30=#30+1
+IF [#30 GE FIX[{NUMBER_LOOPS}]] GOTO {BLOCK+2}
+GOTO {BLOCK-7}
+IF [{RETURN_TO_NEG} EQ 0] GOTO {BLOCK+3}
+G04 X2.0
+G00 G90 Y{NEG_POSITION}
+  </CODE>
+  <VARIABLES>
+    <VAR no="1" id="A">
+      <ID>RAPID_DOWN_TO</ID>
+      <DESCRIPTION>Rapid Down To</DESCRIPTION>
+      <ALT_DESC>Position of Axis 1</ALT_DESC>
+      <ALT_DESC>Plunge Amount</ALT_DESC>
+      <ALT_DESC>Back Taper Up</ALT_DESC>
+      <ALT_DESC>Rapid Down To</ALT_DESC>
+      <ALT_DESC>Rapid Up To</ALT_DESC>
+      <ALT_DESC>Rap To Top of Part</ALT_DESC>
+      <ALT_DESC>Radius Value</ALT_DESC>
+      <ALT_DESC>Plunge To</ALT_DESC>
+      <ALT_DESC>Above Part</ALT_DESC>
+      <ALT_DESC>2nd Plunge Ax 1</ALT_DESC>
+      <ALT_DESC>3rd Plunge Ax 1</ALT_DESC>
+      <ALT_DESC>4th Plunge Ax 1</ALT_DESC>
+      <ALT_DESC>Up Move Ax 1</ALT_DESC>
+      <ALT_DESC>Taper Ax1</ALT_DESC>
+      <ALT_DESC>Back Taper</ALT_DESC>
+      <ALT_DESC>Taper High Pos</ALT_DESC>
+      <ALT_DESC>Taper Low Pos</ALT_DESC>
+      <ALT_DESC>End of Taper</ALT_DESC>
+      <ALT_DESC>Plunge Depth</ALT_DESC>
+      <ALT_DESC>Taper Up To</ALT_DESC>
+      <ALT_DESC>Taper up</ALT_DESC>
+      <ALT_DESC>Taper Down To</ALT_DESC>
+      <VALUE>00.00000</VALUE>
+      <CONTAINER>0</CONTAINER>
+      <CONSTANT>0</CONSTANT>
+      <VALUEBOXPROPERTIES>
+	<VALUEBACKCOLOR>16777215</VALUEBACKCOLOR>
+	<VALUEBOXTYPE>0</VALUEBOXTYPE>
+	<AXISNUMBER>1</AXISNUMBER>
+      </VALUEBOXPROPERTIES>
+    </VAR>
+    <VAR no="2" id="B">
+      <ID>DEPTH_OF_PLUNGE</ID>
+      <DESCRIPTION>Plunge Depth</DESCRIPTION>
+      <ALT_DESC>Position of Axis 1</ALT_DESC>
+      <ALT_DESC>Plunge Amount</ALT_DESC>
+      <ALT_DESC>Back Taper Up</ALT_DESC>
+      <ALT_DESC>Rapid Down To</ALT_DESC>
+      <ALT_DESC>Rapid Up To</ALT_DESC>
+      <ALT_DESC>Rap To Top of Part</ALT_DESC>
+      <ALT_DESC>Radius Value</ALT_DESC>
+      <ALT_DESC>Plunge To</ALT_DESC>
+      <ALT_DESC>Above Part</ALT_DESC>
+      <ALT_DESC>2nd Plunge Ax 1</ALT_DESC>
+      <ALT_DESC>3rd Plunge Ax 1</ALT_DESC>
+      <ALT_DESC>4th Plunge Ax 1</ALT_DESC>
+      <ALT_DESC>Up Move Ax 1</ALT_DESC>
+      <ALT_DESC>Taper Ax1</ALT_DESC>
+      <ALT_DESC>Back Taper</ALT_DESC>
+      <ALT_DESC>Taper High Pos</ALT_DESC>
+      <ALT_DESC>Taper Low Pos</ALT_DESC>
+      <ALT_DESC>End of Taper</ALT_DESC>
+      <ALT_DESC>Plunge Depth</ALT_DESC>
+      <ALT_DESC>Taper Up To</ALT_DESC>
+      <ALT_DESC>Taper up</ALT_DESC>
+      <ALT_DESC>Taper Down To</ALT_DESC>
+      <VALUE>00.00000</VALUE>
+      <CONTAINER>0</CONTAINER>
+      <CONSTANT>0</CONSTANT>
+      <VALUEBOXPROPERTIES>
+	<VALUEBACKCOLOR>16777215</VALUEBACKCOLOR>
+	<VALUEBOXTYPE>0</VALUEBOXTYPE>
+	<AXISNUMBER>1</AXISNUMBER>
+      </VALUEBOXPROPERTIES>
+    </VAR>
+    <VAR no="3" id="C">
+      <ID>VELOCITY_AXIS1</ID>
+      <DESCRIPTION>Velocity of Axis 1</DESCRIPTION>
+      <ALT_DESC>Rap-Vel Axis1</ALT_DESC>
+      <ALT_DESC>Plunge Vel</ALT_DESC>
+      <ALT_DESC>To Top Vel</ALT_DESC>
+      <ALT_DESC>1st Plunge</ALT_DESC>
+      <ALT_DESC>2nd Plunge</ALT_DESC>
+      <ALT_DESC>3rd Plunge</ALT_DESC>
+      <ALT_DESC>4th Plunge</ALT_DESC>
+      <ALT_DESC>Up Vel Ax 1</ALT_DESC>
+      <ALT_DESC>Velocity Down</ALT_DESC>
+      <VALUE>0.05000</VALUE>
+      <CONTAINER>1</CONTAINER>
+      <CONSTANT>0</CONSTANT>
+      <VALUEBOXPROPERTIES>
+	<VALUEBACKCOLOR>16777215</VALUEBACKCOLOR>
+	<VALUEBOXTYPE>0</VALUEBOXTYPE>
+	<ISVELOCITY>1</ISVELOCITY>
+	<AXISNUMBER>1</AXISNUMBER>
+      </VALUEBOXPROPERTIES>
+    </VAR>
+    <VAR no="4" id="D">
+      <ID>WIDTH_OF_PLUNGE</ID>
+      <DESCRIPTION>Width of Plunge</DESCRIPTION>
+      <ALT_DESC>Position of Axis 2</ALT_DESC>
+      <ALT_DESC>Rapid In To</ALT_DESC>
+      <ALT_DESC>Rap to 1st Pos</ALT_DESC>
+      <ALT_DESC>Rap Away from Part</ALT_DESC>
+      <ALT_DESC>Spark Out Ax 2</ALT_DESC>
+      <ALT_DESC>End of Part</ALT_DESC>
+      <ALT_DESC>End of 1st Dia</ALT_DESC>
+      <ALT_DESC>End of 2nd Dia</ALT_DESC>
+      <ALT_DESC>End of 3rd Dia</ALT_DESC>
+      <ALT_DESC>End of Taper</ALT_DESC>
+      <ALT_DESC>End of 1st Taper</ALT_DESC>
+      <ALT_DESC>End of 2nd Taper</ALT_DESC>
+      <ALT_DESC>End of 3rd Taper</ALT_DESC>
+      <ALT_DESC>End of 4th Taper</ALT_DESC>
+      <ALT_DESC>Width of Wheel.</ALT_DESC>
+      <ALT_DESC>Width of Plunge</ALT_DESC>
+      <ALT_DESC>Width of Cut</ALT_DESC>
+      <ALT_DESC>Taper In  Ax 1</ALT_DESC>
+      <ALT_DESC>Move Out to</ALT_DESC>
+      <ALT_DESC>Move In to</ALT_DESC>
+      <VALUE>00.00000</VALUE>
+      <CONTAINER>3</CONTAINER>
+      <CONSTANT>0</CONSTANT>
+      <VALUEBOXPROPERTIES>
+	<VALUEBACKCOLOR>16776960</VALUEBACKCOLOR>
+	<VALUEBOXTYPE>0</VALUEBOXTYPE>
+	<AXISNUMBER>2</AXISNUMBER>
+	<IGNOREOFFSETS>1</IGNOREOFFSETS>
+      </VALUEBOXPROPERTIES>
+    </VAR>
+    <VAR no="5" id="E">
+      <ID>PLUNGE_DWELL</ID>
+      <DESCRIPTION>Plunge Dwell</DESCRIPTION>
+      <ALT_DESC>Final Inc. Axis 1</ALT_DESC>
+      <ALT_DESC>Final Plunge</ALT_DESC>
+      <ALT_DESC>Plunge Dwell</ALT_DESC>
+      <VALUE>00.00000</VALUE>
+      <CONTAINER>6</CONTAINER>
+      <CONSTANT>0</CONSTANT>
+      <VALUEBOXPROPERTIES>
+	<VALUEBACKCOLOR>8421631</VALUEBACKCOLOR>
+	<VALUEBOXTYPE>0</VALUEBOXTYPE>
+	<IGNOREMETRIC>1</IGNOREMETRIC>
+      </VALUEBOXPROPERTIES>
+    </VAR>
+    <VAR no="6" id="F">
+      <ID>NUMBER_LOOPS</ID>
+      <DESCRIPTION>Number Of Loops</DESCRIPTION>
+      <ALT_DESC>Number Of Loops</ALT_DESC>
+      <ALT_DESC>Num. of Plunges</ALT_DESC>
+      <VALUE>1</VALUE>
+      <CONTAINER>3</CONTAINER>
+      <CONSTANT>1</CONSTANT>
+      <VALUEBOXPROPERTIES>
+	<VALUEBACKCOLOR>16777215</VALUEBACKCOLOR>
+	<VALUEBOXTYPE>0</VALUEBOXTYPE>
+	<IGNOREMETRIC>1</IGNOREMETRIC>
+	<FORMAT>000.0000</FORMAT>
+      </VALUEBOXPROPERTIES>
+    </VAR>
+    <VAR no="7" id="G">
+      <ID>RETURN_TO_NEG</ID>
+      <DESCRIPTION>Return To Neg.</DESCRIPTION>
+      <ALT_DESC>Return To Neg.</ALT_DESC>
+      <VALUE>0</VALUE>
+      <CONTAINER>2</CONTAINER>
+      <CONSTANT>1</CONSTANT>
+      <VALUEBOXPROPERTIES>
+	<VALUEBACKCOLOR>16777215</VALUEBACKCOLOR>
+	<VALUEBOXTYPE>2</VALUEBOXTYPE>
+	<FLASH>1</FLASH>
+	<AXISNUMBER>1</AXISNUMBER>
+      </VALUEBOXPROPERTIES>
+    </VAR>
+    <VAR no="8" id="H">
+      <ID>NEG_POSITION</ID>
+      <DESCRIPTION>Neg. Position</DESCRIPTION>
+      <ALT_DESC>Neg. Position</ALT_DESC>
+      <VALUE>00.00000</VALUE>
+      <CONTAINER>0</CONTAINER>
+      <CONSTANT>1</CONSTANT>
+      <VALUEBOXPROPERTIES>
+	<VALUEBACKCOLOR>16777215</VALUEBACKCOLOR>
+	<VALUEBOXTYPE>0</VALUEBOXTYPE>
+	<AXISNUMBER>1</AXISNUMBER>
+      </VALUEBOXPROPERTIES>
+    </VAR>
+  </VARIABLES>
+  <HELP_TEXT>This move is used to blah blah blah</HELP_TEXT>
+  <HELP_VIDEO>NAME_OF_VIDEO.AVI</HELP_VIDEO>
+  <QUICK_TIP_VIDEO>Loop Plunge.avi</QUICK_TIP_VIDEO>
+  <MOVEINDEX>0</MOVEINDEX>
+  <MOVESTATUS>Natural</MOVESTATUS>
+</MOVE>

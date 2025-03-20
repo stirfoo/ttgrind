@@ -1,0 +1,84 @@
+<MOVE Order="" Id="Angle">
+  <NAME>Angle</NAME>
+  <ICON>007.ico</ICON>
+  <CODE>
+G04
+G04
+(G01 G91 Y[-1*[{TAPER_DOWN_TO}+#5]-#5002] Z[[-1*ABS[-{TAPER_DOWN_TO}-#5002]]/TAN[{ANGLE}]] F{TAPER_VELOCITY})
+G01 G90 Y[-1*[{TAPER_DOWN_TO}+#5]] Z[#5003+[[ABS[-{TAPER_DOWN_TO}-#5002]]/TAN[{ANGLE}]]] F{TAPER_VELOCITY}
+  </CODE>
+  <VARIABLES>
+    <VAR no="1" id="A">
+      <ID>ANGLE</ID>
+      <DESCRIPTION>Angle Value</DESCRIPTION>
+      <ALT_DESC>Angle Value</ALT_DESC>
+      <VALUE>00.00000</VALUE>
+      <CONTAINER>3</CONTAINER>
+      <CONSTANT>0</CONSTANT>
+      <VALUEBOXPROPERTIES>
+	<VALUEBACKCOLOR>8454143</VALUEBACKCOLOR>
+	<VALUEBOXTYPE>0</VALUEBOXTYPE>
+	<IGNOREMETRIC>1</IGNOREMETRIC>
+      </VALUEBOXPROPERTIES>
+    </VAR>
+    <VAR no="2" id="B">
+      <ID>TAPER_DOWN_TO</ID>
+      <DESCRIPTION>Taper Down To</DESCRIPTION>
+      <ALT_DESC>Position of Axis 1</ALT_DESC>
+      <ALT_DESC>Plunge Amount</ALT_DESC>
+      <ALT_DESC>Back Taper Up</ALT_DESC>
+      <ALT_DESC>Rapid Down To</ALT_DESC>
+      <ALT_DESC>Rapid Up To</ALT_DESC>
+      <ALT_DESC>Rap To Top of Part</ALT_DESC>
+      <ALT_DESC>Radius Value</ALT_DESC>
+      <ALT_DESC>Plunge To</ALT_DESC>
+      <ALT_DESC>Above Part</ALT_DESC>
+      <ALT_DESC>2nd Plunge Ax 1</ALT_DESC>
+      <ALT_DESC>3rd Plunge Ax 1</ALT_DESC>
+      <ALT_DESC>4th Plunge Ax 1</ALT_DESC>
+      <ALT_DESC>Up Move Ax 1</ALT_DESC>
+      <ALT_DESC>Taper Ax1</ALT_DESC>
+      <ALT_DESC>Back Taper</ALT_DESC>
+      <ALT_DESC>Taper High Pos</ALT_DESC>
+      <ALT_DESC>Taper Low Pos</ALT_DESC>
+      <ALT_DESC>End of Taper</ALT_DESC>
+      <ALT_DESC>Plunge Depth</ALT_DESC>
+      <ALT_DESC>Taper Up To</ALT_DESC>
+      <ALT_DESC>Taper up</ALT_DESC>
+      <ALT_DESC>Taper Down To</ALT_DESC>
+      <VALUE>00.00000</VALUE>
+      <CONTAINER>0</CONTAINER>
+      <CONSTANT>0</CONSTANT>
+      <VALUEBOXPROPERTIES>
+	<VALUEBACKCOLOR>16777215</VALUEBACKCOLOR>
+	<VALUEBOXTYPE>0</VALUEBOXTYPE>
+	<AXISNUMBER>1</AXISNUMBER>
+      </VALUEBOXPROPERTIES>
+    </VAR>
+    <VAR no="3" id="C">
+      <ID>TAPER_VELOCITY</ID>
+      <DESCRIPTION>Taper Velocity</DESCRIPTION>
+      <ALT_DESC>Paths</ALT_DESC>
+      <ALT_DESC>back Taper Vel</ALT_DESC>
+      <ALT_DESC>1st Taper Vel</ALT_DESC>
+      <ALT_DESC>2nd Taper Vel</ALT_DESC>
+      <ALT_DESC>3rd Taper Vel</ALT_DESC>
+      <ALT_DESC>Last Taper Vel</ALT_DESC>
+      <ALT_DESC>Radius Velocity</ALT_DESC>
+      <ALT_DESC>Taper Velocity</ALT_DESC>
+      <VALUE>0.10000</VALUE>
+      <CONTAINER>5</CONTAINER>
+      <CONSTANT>0</CONSTANT>
+      <VALUEBOXPROPERTIES>
+	<VALUEBACKCOLOR>8454143</VALUEBACKCOLOR>
+	<VALUEBOXTYPE>0</VALUEBOXTYPE>
+	<ISVELOCITY>1</ISVELOCITY>
+      </VALUEBOXPROPERTIES>
+    </VAR>
+  </VARIABLES>
+  <HELP_TEXT>This move is used to blah blah blah</HELP_TEXT>
+  <HELP_VIDEO>NAME_OF_VIDEO.AVI</HELP_VIDEO>
+  <QUICK_TIP_VIDEO>angle.avi</QUICK_TIP_VIDEO>
+  <MOVEINDEX>0</MOVEINDEX>
+  <MOVESTATUS>Natural</MOVESTATUS>
+</MOVE>

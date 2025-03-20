@@ -1,0 +1,88 @@
+<MOVE Order="" Id="Off">
+  <NAME>Roller Off</NAME>
+  <ICON>018.ico</ICON>
+  <CODE>
+IF [#1 EQ 0] GOTO {BLOCK+7}			(If loops is set to 0 then loop infinetly)
+#2=#2+1						(Increment the loop count)
+IF[#2 EQ #1] GOTO {BLOCK+7}			(Total loops complete?)
+IF[[#2+1] EQ #1] GOTO {BLOCK+3}			(Is it the second to last loop?)
+#5=#5+#3					(If not do a regular increment amount)
+GOTO {BLOCK+2}
+#5=#5+#4					(If so do a final increment amount)
+G00 G90 Y0 M9					(Return axis 1 to position 0)
+GOTO [#8]					(Return to ON move if looping)
+G90 M9
+M76						(Roller off)
+IF [{AXIS2_RETURN} EQ 0] GOTO {BLOCK+3}
+G00 Y{NEG_HOME_AXIS1} Z[{NEG_HOME_AXIS2}]
+GOTO {BLOCK+2}
+G00 Y{NEG_HOME_AXIS1}
+G04 P.1
+IF[#6 EQ 0] GOTO {BLOCK+2}
+M77
+  </CODE>
+  <VARIABLES>
+    <VAR no="1" id="A">
+      <ID>NEG_HOME_AXIS1</ID>
+      <DESCRIPTION>Neg. Home 1</DESCRIPTION>
+      <ALT_DESC>Neg. Home 1</ALT_DESC>
+      <VALUE>00.50000</VALUE>
+      <CONTAINER>0</CONTAINER>
+      <CONSTANT>1</CONSTANT>
+      <VALUEBOXPROPERTIES>
+	<VALUEBACKCOLOR>16777215</VALUEBACKCOLOR>
+	<VALUEBOXTYPE>0</VALUEBOXTYPE>
+	<AXISNUMBER>1</AXISNUMBER>
+      </VALUEBOXPROPERTIES>
+    </VAR>
+    <VAR no="2" id="B">
+      <ID>NEG_HOME_AXIS2</ID>
+      <DESCRIPTION>Neg. Home 2</DESCRIPTION>
+      <ALT_DESC>Neg. Home 2</ALT_DESC>
+      <VALUE>00.50000</VALUE>
+      <CONTAINER>2</CONTAINER>
+      <CONSTANT>1</CONSTANT>
+      <VALUEBOXPROPERTIES>
+	<VALUEBACKCOLOR>16776960</VALUEBACKCOLOR>
+	<VALUEBOXTYPE>0</VALUEBOXTYPE>
+	<AXISNUMBER>2</AXISNUMBER>
+      </VALUEBOXPROPERTIES>
+    </VAR>
+    <VAR no="3" id="C">
+      <ID>AXIS_1_VELOCITY</ID>
+      <DESCRIPTION>Axis 1 Vel</DESCRIPTION>
+      <VALUE>15.0000</VALUE>
+      <CONTAINER>1</CONTAINER>
+      <IGNOREOFFSETS></IGNOREOFFSETS>
+      <IGNOREHIGHLIGHT>1</IGNOREHIGHLIGHT>
+      <CONSTANT>1</CONSTANT>
+    </VAR>
+    <VAR no="4" id="D">
+      <ID>AXIS_2_VELOCITY</ID>
+      <DESCRIPTION>Axis 2 Vel.</DESCRIPTION>
+      <VALUE>15.0000</VALUE>
+      <CONTAINER>1</CONTAINER>
+      <IGNOREOFFSETS></IGNOREOFFSETS>
+      <IGNOREHIGHLIGHT>1</IGNOREHIGHLIGHT>
+      <CONSTANT>1</CONSTANT>
+    </VAR>
+    <VAR no="5" id="E">
+      <ID>AXIS2_RETURN</ID>
+      <DESCRIPTION>Axis 2 Return</DESCRIPTION>
+      <ALT_DESC>Axis 2 Return</ALT_DESC>
+      <VALUE>1</VALUE>
+      <CONTAINER>3</CONTAINER>
+      <CONSTANT>1</CONSTANT>
+      <VALUEBOXPROPERTIES>
+	<VALUEBACKCOLOR>16776960</VALUEBACKCOLOR>
+	<VALUEBOXTYPE>2</VALUEBOXTYPE>
+	<IGNOREMETRIC>1</IGNOREMETRIC>
+      </VALUEBOXPROPERTIES>
+    </VAR>
+  </VARIABLES>
+  <HELP_TEXT>This move is used to blah blah blah</HELP_TEXT>
+  <HELP_VIDEO>NAME_OF_VIDEO.AVI</HELP_VIDEO>
+  <QUICK_TIP_VIDEO>Roller Off.avi</QUICK_TIP_VIDEO>
+  <MOVEINDEX>0</MOVEINDEX>
+  <MOVESTATUS>Natural</MOVESTATUS>
+</MOVE>

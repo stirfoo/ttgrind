@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<PROGRAM>
+  <NAME>__grind</NAME>
+  <ICON>02.ico</ICON>
+  <NOTES></NOTES>
+  <PARAMETERS><UNITS>SAE</UNITS></PARAMETERS>
+  <BUILDERSCRIPTS>
+  </BUILDERSCRIPTS>
+  <GCODEHEADER>
+G54
+#2=0			("Loop Count")
+#6=0			("Table Traversed" flag)
+  </GCODEHEADER>
+  <GCODEFOOTER>
+M99
+  </GCODEFOOTER>
+</PROGRAM>
